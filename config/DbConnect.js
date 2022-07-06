@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const _variables = require( './creds' );
 
 var _db;
-console.log(_variables.mongoURL);
+console.log(_variables.mongo.conString);
 module.exports = {
 
   connectToServer: function( callback, creds ) {

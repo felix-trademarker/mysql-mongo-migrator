@@ -60,6 +60,26 @@ class Model{
         });
     }
 
+    getLatest() {
+        var this_ = this
+        let ObjectID = require('mongodb').ObjectID;
+        return new Promise(function(resolve, reject) {
+            
+			
+			this_.db.getDb().collection(this_.table).find().limit(1).sort({"_id": -1}).toArray(function(err, result) {
+					
+				if (err) {
+					reject(err);
+				} else {
+					resolve(result);
+				}
+
+			});
+
+        });
+    }
+
+
     update(id, data) {
         var this_ = this
         let ObjectID = require('mongodb').ObjectID;
@@ -115,6 +135,8 @@ class Model{
 		});
 
     }
+
+    
 }
 
 module.exports = Model;

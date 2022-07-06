@@ -10,14 +10,23 @@ exports.process = async function(req, res, next) {
         console.log("Migrating >>>", tables[i].table_name)
         let defaultModel = new Model(tables[i].table_name)
 
-        let dataArr = await rpoSQL.getSQL(tables[i].table_name)
-        console.log("Total fetched records", dataArr.length)
+        let hastableContentMongo = await defaultModel.getLatest()
 
-        for (let n=0; n < dataArr.length; n++) {
-            let el = dataArr[n]
-            await defaultModel.put(el)
-            console.log(tables[i].table_name,">> Added ",n +' of '+dataArr.length);
+        if (!(hastableContentMongo && hastableContentMongo.length > 0)) {
+
+            let dataArr = await rpoSQL.getSQL(tables[i].table_name)
+            console.log("Total fetched records", dataArr.length)
+
+            for (let n=0; n < dataArr.length; n++) {
+                let el = dataArr[n]
+                await defaultModel.put(el)
+                console.log(tables[i].table_name,">> Added ",n +' of '+dataArr.length);
+            }
+        } else {
+            console.log("Skip >>>", tables[i].table_name)
         }
+
+        
 
     }
 }
