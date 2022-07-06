@@ -6,7 +6,7 @@
         useUnifiedTopology: true 
       },
       mongo : {
-        conString : 'mongodb://localhost:27017/istudio10',
+        conString : 'mongodb://felix:bluecapcolddent@dev158.bigfoot.com',
         name : 'istudio10',
       },
       mySql : {

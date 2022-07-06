@@ -60,3 +60,5 @@ public/beta/activities-csv/*
 package-lock.json
 
 public/robots.txt
+
+config/creds.js
