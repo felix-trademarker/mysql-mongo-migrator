@@ -89,8 +89,10 @@ function mainFunc(){
   let conn = require('./config/DbConnect');
   conn.connectToServer( function( err, client ) {
 
-    if (err) console.log(err)
-
+    if (err) {
+      console.log(err)
+      return;
+    }
     // SERVICE
     var services = require('./services/migrationService')
 
