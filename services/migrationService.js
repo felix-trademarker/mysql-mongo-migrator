@@ -5,6 +5,7 @@ exports.process = async function(req, res, next) {
     
     let tables = await rpoSQL.getSQLTables()
 
+    console.log("found tables: ", tables)
     for (let i=0; i < tables.length; i++) {
 
         console.log("Migrating >>>", tables[i].table_name)
