@@ -1,13 +1,13 @@
 
 // MYSQL
 var mysql = require('mysql');
-var creds = require('./../config/creds')
+// var creds = require('./../config/variables')
 
 var con = mysql.createConnection({
-  host: creds.mySql.host,
-  user: creds.mySql.user,
-  password: creds.mySql.pass,
-  database: creds.mySql.name,
+  host: process.env.DBHOST,
+  user: process.env.DBUSER,
+  password: process.env.DBPASS,
+  database: process.env.DBNAME,
 });
 
 module.exports = {

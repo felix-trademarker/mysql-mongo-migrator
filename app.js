@@ -16,7 +16,7 @@ let mConfig = {}
 
 var fs = require('fs');
 
-if (fs.existsSync('./config/creds.js')) {
+if (true || fs.existsSync('./config/creds.js')) {
 
   mainFunc()
 

@@ -2,9 +2,7 @@
 var ENV = process.env.ENVIRONMENT || 'prod';
 
 module.exports = { 
-    mongoURL        : process.env.MongoURILOCAL,
-    mongoURLEU      : process.env.MongoURIEU,
-    mongoURLAWS      : process.env.MongoURIAWS,
+    mongoURL        : process.env.MongoURL,
     mongoOptions    : { 
                         useNewUrlParser: true, 
                         useUnifiedTopology: true 
